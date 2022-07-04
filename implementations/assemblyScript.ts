@@ -1,7 +1,3 @@
-// Assembly script implementation
-// Build with npm run build
-// Run with node src/wasmRunner.js
-
 export function calculatePi (rounds: u32): f64 {
     let x = 1.0
     let pi = 1.0

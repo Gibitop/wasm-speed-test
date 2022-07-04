@@ -1,5 +1,3 @@
-// cc src/c.c -O2 -o plainC && ./plainC
-
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
