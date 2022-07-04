@@ -1,0 +1,25 @@
+{
+    "name": "wasm-speed-test",
+    "description": "A place to compare JS vs WASM vs native speeds",
+    "author": {
+        "name": "Ilya Nikishin",
+        "email": "Ilya.ruwork@gmail.com"
+    },
+    "license": "MIT",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "concurrently \"npm:build:assembly-script\" \"npm:build:c\"",
+        "build:assembly-script": "node_modules/.bin/asc implementations/assemblyScript.ts --target release",
+        "build:c": "mkdir -p build && cc implementations/plainC.c -O2 -o build/plainC",
+        "start": "npm run start:js && npm run start:c && npm run start:wasm-node && npm run start:wasm3-cli && npm run start:pywasm3",
+        "start:js": "node implementations/plainJS.js",
+        "start:c": "./build/plainC",
+        "start:wasm-node": "node runners/wasmOnNodeRunner.js",
+        "start:wasm3-cli": "time wasm3 --func calculatePi build/assemblyScript.wasm 4294967293",
+        "start:pywasm3": "python3 runners/pywasm3Runner.py"
+    },
+    "devDependencies": {
+        "assemblyscript": "^0.20.13",
+        "concurrently": "^7.2.2"
+    }
+}
