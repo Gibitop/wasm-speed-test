@@ -2,6 +2,13 @@
 
 A place to compare `JS` vs `WASM` vs `native` speeds.
 
+## Table of contents
+
+- [Method](#method)
+- [How code is executed](#how-code-is-executed)
+- [Run the benchmark](#run-the-benchmark)
+- [Results](#results)
+
 ## Method
 
 The benchmark is calculating PI with a [Leibniz formula](https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80)
